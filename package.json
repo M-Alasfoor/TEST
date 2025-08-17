@@ -1,0 +1,36 @@
+{
+  "name": "econx",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "cdk:bootstrap": "cdk bootstrap",
+    "cdk:deploy": "cdk deploy",
+    "infra:build": "tsc -p tsconfig.json",
+    "lambda:build": "tsc -p tsconfig.json && esbuild lambda/**/*.ts --outdir=lambda/dist --platform=node --target=node18 --format=cjs",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:preview": "cd frontend && npm run preview",
+    "cdk:emit-config": "ts-node scripts/emit-config.ts",
+    "test": "echo 'no tests'"
+  },
+  "devDependencies": {
+    "aws-cdk-lib": "2.132.0",
+    "constructs": "10.3.0",
+    "typescript": "5.4.5",
+    "ts-node": "10.9.2",
+    "esbuild": "0.19.8"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.529.1",
+    "@aws-sdk/client-dynamodb": "3.529.1",
+    "@aws-sdk/lib-dynamodb": "3.529.1",
+    "@aws-sdk/client-sfn": "3.529.1",
+    "@aws-sdk/client-bedrock-runtime": "3.529.1",
+    "@aws-sdk/client-cognito-identity-provider": "3.529.1",
+    "@aws-sdk/util-dynamodb": "3.529.1",
+    "@aws-sdk/s3-request-presigner": "3.529.1",
+    "uuid": "9.0.1",
+    "@aws-lambda-powertools/logger": "1.11.0"
+  }
+}
